@@ -216,13 +216,89 @@ def solve_riddle(game_state):
 
 
 
-# TO BE IMPLEMNETED BY SHOAIB SHAHID
+# Function to display the available commands
 def help_menu():
-    pass
+    print("""
+    COMMANDS:
+    - move [direction] (north, south, east, west)
+    - look: Describe the current room
+    - take [item]: Pick up an item
+    - drop [item]: Drop an item from your inventory
+    - show: Show your inventory
+    - bake: Bake a cake in the kitchen
+    - riddle: Solve the riddle in the gallery
+    - save: Save the current game state
+    - load: Load a saved game state
+    - help: Show this help menu
+    - quit: Exit the game
+    """)
 
-# TO BE IMPLEMNETED BY SHOAIB SHAHID
+# file handling
 def save_game(game_state):
-    pass
+    try:
+        with open('game_state.json', 'w') as save_file:
+            json.dump(game_state, save_file)
+            print("Game saved successfully!")
+    except Exception as e:
+        print(f"An error occurred while saving the game: {e}")
 
 def load_game():
-    pass
+    try:
+        with open('game_state.json', 'r') as load_file:
+            game_state = json.load(load_file)
+            print("Game loaded successfully!")
+            describe_room(game_state['current_room'])
+            return game_state
+    except FileNotFoundError:
+        print("No saved game found.")
+        return None
+    except Exception as e:
+        print(f"An error occurred while loading the game: {e}")
+        return None
+
+
+
+def main():
+    print("Welcome to 'The Mysterious Castle Adventure'!")
+    help_menu()
+    while True:
+        command = input("\nEnter a command: ").lower().split()
+        if not command:
+            print("Please enter a command.")
+            continue
+
+        action = command[0]
+        if action == 'move' and len(command) > 1:
+            move(game_state, command[1])
+        elif action == 'look':
+            look(game_state)
+        elif action == 'take' and len(command) > 1:
+            take_item(game_state, ' '.join(command[1:]))
+        elif action == 'drop' and len(command) > 1:
+            drop_item(game_state, ' '.join(command[1:]))
+        elif action == 'show':
+            show_item(game_state)
+        elif action == 'bake':
+            bake_cake(game_state)
+        elif action == 'riddle':
+            solve_riddle(game_state)
+        elif action == 'save':
+            save_game(game_state)
+        elif action == 'load':
+            loaded_state = load_game()
+            if loaded_state:
+                game_state.update(loaded_state)
+        elif action == 'help':
+            help_menu()
+        elif action == 'quit':
+            print("Thanks for playing! Goodbye!")
+            break
+        else:
+            print("Invalid command. Type 'help' for a list of commands.")
+
+
+
+if __name__ == "main":
+    main()
+
+main()
