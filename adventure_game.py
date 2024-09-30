@@ -165,18 +165,54 @@ def take_item(game_state, item):
     print(f"{item} is not here.")
 
 
-# puzzle
-# TO BE IMPLEMNETED BY ADEEL TAHIR
+# bake cake
 def bake_cake(game_state):
-    pass
+    if game_state['current_room'] != 'Kitchen':
+        print("You need to be in the Kitchen to bake a cake.")
+        return
+    ingredients_needed = ['flour', 'water', 'yeast']
+    if all(ingredient in game_state['inventory'] for ingredient in ingredients_needed):
+        print("You have baked a cake!")
+        game_state['inventory'].append('cake')
+        game_state['cake_baked'] = True
+        for ingredient in ingredients_needed:
+            game_state['inventory'].remove(ingredient)
+    else:
+        print("You don't have the necessary ingredients to bake a cake.")
 
-# TO BE IMPLEMNETED BY ADEEL TAHIR
+# match symbol        
 def match_symbols(game_state):
-    pass
+    print("You need to enter a combination of symbols to activate the lever.")
+    print("Symbols available: triangle (T), circle (C), square (S), oval (O)")
+    print("You can combine them using + for addition and * for multiplication and - for subtraction")
 
-# TO BE IMPLEMNETED BY ADEEL TAHIR
+    user_input = input("Enter your symbols: ").strip().lower()
+
+    # Correct combination
+    correct_combination = "t+c-o*s"   
+
+    # Evaluate the user's input and compare with the correct combination
+    if user_input.replace(' ', '') == correct_combination.replace(' ', ''):
+        print("You matched the symbols correctly! The lever activates.")
+        return True
+    else:
+        print("Your combination is incorrect. Try again. Hint: Use basic arithmetic.")
+        return False
+# riddle 
 def solve_riddle(game_state):
-    pass
+    if game_state['current_room'] != 'Gallery':
+        print("You need to be in the Gallery to solve the riddle.")
+        return
+    if game_state['riddle_solved']:
+        print("You have already solved the riddle.")
+        return
+    answer = input("What has many keys but can’t open a single door? ").lower()
+    if answer == rooms['Gallery']['riddle_answer']:
+        print("You solved the riddle! The Hidden Passage is now unlocked.")
+        game_state['riddle_solved'] = True
+    else:
+        print("Incorrect answer. Try again. Hint: Think of something musical.")
+
 
 
 
