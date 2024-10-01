@@ -1,0 +1,50 @@
+Member 1: (UMER ABBAS , SP23_BAI_053)
+
+Contribution:
+
+1. Movement and Room Navigation:
+I developed the move() function, which handles player movement between different rooms of the castle. This function includes specific checks to ensure the player meets certain conditions, such as solving a puzzle or carrying a necessary item (e.g., needing a candle to see in the Dungeon, or a cake to appease the monster).
+I also ensured the movement logic accounts for blocked paths (e.g., monster blocking access to the Dungeon, needing to solve the riddle for the Hidden Passage) and added appropriate messages to guide the player through the game.
+
+
+
+2. Inventory Management:
+
+I implemented the core inventory management functions:
+take_item(): This allows the player to pick up items from rooms, but includes a limit on the number of items a player can carry (a bag limit).
+drop_item(): Players can remove items from their inventory if they want to reduce their load.
+show_item(): Displays the current items in the player's inventory.
+
+
+
+3. Room Interaction & Exploration:
+
+The describe_room() and look() functions were created to describe the current room's atmosphere, available exits, and items. These functions enhance player immersion by providing detailed descriptions and making exploration more intuitive.
+
+
+
+4. Collaboration on Puzzle Design:
+
+While another member took the lead on creating the puzzles, I contributed by helping integrate them smoothly into the gameplay, ensuring that the conditions for accessing rooms (like the Hidden Passage or Tower) were properly handled within the movement system.
+
+
+
+5. Error Handling Assistance:
+
+Along with the other members, I helped in identifying and addressing errors related to player input (such as incorrect movement commands or attempts to take non-existent items) to ensure the game runs smoothly.
+
+
+
+Functions I Implemented:
+
+move()
+
+take_item()
+
+drop_item()
+
+show_item()
+
+describe_room()
+
+look()
