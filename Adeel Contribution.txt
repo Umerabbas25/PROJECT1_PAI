@@ -1,0 +1,26 @@
+Member 2: (Adeel Tahir)
+
+Contribution:
+
+1. Puzzle and Riddle System:
+
+I designed and implemented the puzzle and riddle mechanics, adding depth and challenges to the game. This includes:
+
+The riddle in the Gallery: "What has many keys but can’t open a single door?" Players must solve it to unlock the Hidden Passage.
+
+The symbol-matching puzzle in the Tower: Players need to input the correct combination of symbols to open the final door leading to the Courtyard.
+
+
+These puzzles are integral to progressing through the game and provide key moments of interaction and problem-solving for the player.
+
+
+
+2. Map and Room Design:
+
+I played a major role in mapping out the layout of the castle and defining each room's description, available exits, and items. This involved designing the structure and flow of the game, ensuring there were logical connections between rooms, and incorporating obstacles (e.g., a monster in the Armory blocking access to the Dungeon).
+
+
+
+3. Collaboration on Error Handling:
+
+I worked closely with other team members to identify and fix bugs related to puzzle-solving and room transitions. For instance, we ensured that if the player attempts to move to a room without solving the necessary puzzle (like trying to enter the Hidden Passage without solving the riddle), appropriate error messages are displayed, preventing gameplay issues.
