@@ -1,0 +1,30 @@
+Member 3: (Muhammad Shoaib Shahid)
+
+Contribution:
+
+1. File Handling (Saving and Loading):
+
+I implemented the functions necessary for saving and loading game states. This allows players to save their progress in the castle and resume their adventure at any point:
+
+save_game(): Saves the current game state to a JSON file, including the player's inventory, location, and puzzle-solving progress.
+
+load_game(): Loads a saved game from a file, restoring the player to their previous state.
+
+
+This feature enhances the overall experience by allowing players to take breaks and come back to the game later without losing progress.
+
+
+
+2. Main Game Loop & Command Processing:
+
+I designed the main game loop, which continuously prompts players for input, processes commands, and triggers appropriate actions like movement, item management, puzzle-solving, and room exploration.
+
+I also implemented the help_menu() function, which provides players with a list of available commands, making it easier to understand how to play the game.
+
+
+
+3. Error Handling & Input Validation:
+
+I contributed to the game's error handling by ensuring that invalid inputs (such as trying to move in a non-existent direction, taking an item that isn't present, or solving a puzzle in the wrong room) are handled gracefully with appropriate feedback.
+
+I worked with the other members to refine these error messages and ensure that the game does not crash due to unexpected user behavior.
